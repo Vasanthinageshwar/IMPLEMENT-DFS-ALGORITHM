@@ -1,0 +1,30 @@
+CODE:
+#include<stdio.h>;
+
+int G[10][10],visited[10],n;
+
+void DFS(int i)
+{
+int j;
+printf(&quot;%d-&gt;&quot;,i+1);
+visited[i]=1;
+for(j=0;j&lt;n;j++)
+if(!visited[j]&amp;&amp;G[i][j]==1)
+DFS(j);
+
+}
+void main()
+{
+int i,j;
+printf(&quot;Enter number of vertices:&quot;);
+scanf(&quot;%d&quot;,&amp;n);
+printf(&quot;\nEnter adjacency matrix of the graph:\n&quot;);
+
+for(i=0;i&lt;n;i++)
+
+for(j=0;j&lt;n;j++)
+scanf(&quot;%d&quot;,&amp;G[i][j]);
+for(i=0;i&lt;n;i++)
+visited[i]=0;
+DFS(0);
+}
